@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/SIGO.Usuarios/v16
+/src/SIGO.Usuarios.API/bin/Debug/netcoreapp3.1
+/src/SIGO.Usuarios.API/obj
+/src/SIGO.Usuarios.Application/obj
+/src/SIGO.Usuarios.Data/obj
+/src/SIGO.Usuarios.Entities/obj
+/src/SIGO.Usuarios.Integrations/obj
