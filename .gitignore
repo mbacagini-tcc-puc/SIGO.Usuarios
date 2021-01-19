@@ -14,3 +14,4 @@
 /tests/SIGO.Usuarios.Test.Application/obj
 /src/SIGO.Usuarios.Entities/bin/Debug/netcoreapp3.1
 /.vs/SIGO.Usuarios/DesignTimeBuild
+*.coverage

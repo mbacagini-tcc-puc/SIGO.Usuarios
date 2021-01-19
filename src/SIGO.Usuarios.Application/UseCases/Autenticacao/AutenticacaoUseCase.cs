@@ -27,7 +27,7 @@ namespace SIGO.Usuarios.Application.UseCases.Autenticacao
 
             usuario.CodigoVerificacao = GerarCodigoVerificacao();
             usuario.ExpiracaoCodigoVerificacao = DateTime.UtcNow.AddMinutes(5);
-            usuario.DataAlteracao = DateTime.Now;
+            usuario.DataAlteracao = DateTime.UtcNow;
 
             await _usuarioRepository.AtualizarUsuario(usuario);
             await _autenticacaoMultifatorService.EnviarConfirmacaoMultifator(usuario.Celular, usuario.CodigoVerificacao);

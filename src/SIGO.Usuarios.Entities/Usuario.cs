@@ -10,9 +10,7 @@ namespace SIGO.Usuarios.Entities
         public string Celular { get; set; }
         public string Senha { get; set; }
         public string CodigoVerificacao { get; set; }
-        public DateTime? ExpiracaoCodigoVerificacao { get; set; }
-        public string RefreshToken { get; set; }
-        public DateTime? ExpiracaoRefreshToken { get; set; }
+        public DateTimeOffset? ExpiracaoCodigoVerificacao { get; set; }
         public virtual ICollection<Modulo> Modulos { get; set; }
     }
 }
