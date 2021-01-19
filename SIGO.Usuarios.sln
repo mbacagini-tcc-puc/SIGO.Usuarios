@@ -15,15 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Interface Adapters", "2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Framework and Drivers", "3 - Framework and Drivers", "{601A4B68-B065-4220-85F5-E0DF829B0310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.Entities", "src\SIGO.Usuarios.Entities\SIGO.Usuarios.Entities.csproj", "{FC434C84-5ED3-4044-83FB-7FCCAE22551F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Usuarios.Entities", "src\SIGO.Usuarios.Entities\SIGO.Usuarios.Entities.csproj", "{FC434C84-5ED3-4044-83FB-7FCCAE22551F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.Application", "src\SIGO.Usuarios.Application\SIGO.Usuarios.Application.csproj", "{3A7E5085-91E6-49C0-B67E-E02FF857876F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Usuarios.Application", "src\SIGO.Usuarios.Application\SIGO.Usuarios.Application.csproj", "{3A7E5085-91E6-49C0-B67E-E02FF857876F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.API", "src\SIGO.Usuarios.API\SIGO.Usuarios.API.csproj", "{02EB96E1-0DD2-4BF5-9C65-56E51AF0191D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Usuarios.API", "src\SIGO.Usuarios.API\SIGO.Usuarios.API.csproj", "{02EB96E1-0DD2-4BF5-9C65-56E51AF0191D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.Data", "src\SIGO.Usuarios.Data\SIGO.Usuarios.Data.csproj", "{AE449286-F11F-4E7D-A2FC-2D3F02978E4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Usuarios.Data", "src\SIGO.Usuarios.Data\SIGO.Usuarios.Data.csproj", "{AE449286-F11F-4E7D-A2FC-2D3F02978E4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.Integrations", "src\SIGO.Usuarios.Integrations\SIGO.Usuarios.Integrations.csproj", "{CA5E771D-E55D-461C-9729-F6390601A83B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Usuarios.Integrations", "src\SIGO.Usuarios.Integrations\SIGO.Usuarios.Integrations.csproj", "{CA5E771D-E55D-461C-9729-F6390601A83B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application Business Rule", "1 - Application Business Rule", "{2C3AB432-3F4B-4563-93B4-A06EBA842F92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.Test.Application", "tests\SIGO.Usuarios.Test.Application\SIGO.Usuarios.Test.Application.csproj", "{ED834510-83BF-444C-81AE-0CD95B1737CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{CA5E771D-E55D-461C-9729-F6390601A83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5E771D-E55D-461C-9729-F6390601A83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5E771D-E55D-461C-9729-F6390601A83B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED834510-83BF-444C-81AE-0CD95B1737CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED834510-83BF-444C-81AE-0CD95B1737CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED834510-83BF-444C-81AE-0CD95B1737CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED834510-83BF-444C-81AE-0CD95B1737CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +73,8 @@ Global
 		{02EB96E1-0DD2-4BF5-9C65-56E51AF0191D} = {BB54AB77-3864-4A52-9E04-F1CD30849434}
 		{AE449286-F11F-4E7D-A2FC-2D3F02978E4F} = {601A4B68-B065-4220-85F5-E0DF829B0310}
 		{CA5E771D-E55D-461C-9729-F6390601A83B} = {601A4B68-B065-4220-85F5-E0DF829B0310}
+		{2C3AB432-3F4B-4563-93B4-A06EBA842F92} = {E7D628A7-D07B-4A69-A800-5584DA516297}
+		{ED834510-83BF-444C-81AE-0CD95B1737CB} = {2C3AB432-3F4B-4563-93B4-A06EBA842F92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F061E09-F18D-4CF4-9879-448FECF6B58C}
