@@ -8,9 +8,9 @@ namespace SIGO.Usuarios.Integrations
 {
     public class AutenticacaoMultifatorService : IAutenticacaoMultifatorService
     {
-        public Task EnviarConfirmacaoMultifator(string numeroCelular, string codigoVerificacao)
+        public async Task EnviarConfirmacaoMultifator(string numeroCelular, string codigoVerificacao)
         {
-            throw new NotImplementedException();
+            await Task.Delay(10);
         }
     }
 }

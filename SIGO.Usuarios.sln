@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Usuarios.Test.Applicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.Security", "src\SIGO.Usuarios.Security\SIGO.Usuarios.Security.csproj", "{5341BF3F-0CEB-4853-88B7-B1FD1F7D8089}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Interface Adapters", "2 - Interface Adapters", "{E4E745E3-8A21-4FCC-B19A-C2B12CEED0AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Usuarios.Test.Api", "tests\SIGO.Usuarios.Test.Api\SIGO.Usuarios.Test.Api.csproj", "{4139EB5E-630D-4ADD-ACD5-DE5488A92374}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,10 @@ Global
 		{5341BF3F-0CEB-4853-88B7-B1FD1F7D8089}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5341BF3F-0CEB-4853-88B7-B1FD1F7D8089}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5341BF3F-0CEB-4853-88B7-B1FD1F7D8089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4139EB5E-630D-4ADD-ACD5-DE5488A92374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4139EB5E-630D-4ADD-ACD5-DE5488A92374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4139EB5E-630D-4ADD-ACD5-DE5488A92374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4139EB5E-630D-4ADD-ACD5-DE5488A92374}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +90,8 @@ Global
 		{2C3AB432-3F4B-4563-93B4-A06EBA842F92} = {E7D628A7-D07B-4A69-A800-5584DA516297}
 		{ED834510-83BF-444C-81AE-0CD95B1737CB} = {2C3AB432-3F4B-4563-93B4-A06EBA842F92}
 		{5341BF3F-0CEB-4853-88B7-B1FD1F7D8089} = {601A4B68-B065-4220-85F5-E0DF829B0310}
+		{E4E745E3-8A21-4FCC-B19A-C2B12CEED0AD} = {E7D628A7-D07B-4A69-A800-5584DA516297}
+		{4139EB5E-630D-4ADD-ACD5-DE5488A92374} = {E4E745E3-8A21-4FCC-B19A-C2B12CEED0AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F061E09-F18D-4CF4-9879-448FECF6B58C}
