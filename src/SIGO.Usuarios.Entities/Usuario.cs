@@ -11,6 +11,6 @@ namespace SIGO.Usuarios.Entities
         public string Senha { get; set; }
         public string CodigoVerificacao { get; set; }
         public DateTimeOffset? ExpiracaoCodigoVerificacao { get; set; }
-        public virtual ICollection<Modulo> Modulos { get; set; }
+        public virtual ICollection<UsuarioModulo> Modulos { get; set; }
     }
 }

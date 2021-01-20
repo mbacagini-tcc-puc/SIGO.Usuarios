@@ -74,10 +74,10 @@ namespace SIGO.Usuarios.Test.Application
                 Email = "email@teste.com",
                 CodigoVerificacao = CodigoVerificacao,
                 ExpiracaoCodigoVerificacao = DateTime.UtcNow.AddMinutes(2),
-                Modulos = new List<Modulo>
+                Modulos = new List<UsuarioModulo>
                  {
-                     new Modulo { Nome = "consultorias-assesorias" },
-                     new Modulo { Nome = "normas" }
+                     new UsuarioModulo { Modulo = new Modulo {  Nome = "consultorias-assesorias" } },
+                     new UsuarioModulo { Modulo = new Modulo {  Nome = "normas" } }
                  }
             };
 

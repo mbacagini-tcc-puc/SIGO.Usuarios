@@ -17,7 +17,7 @@ namespace SIGO.Usuarios.Application.UseCases.ValidacaoPermissao
         {
             var usuario = await _usuarioRepository.ObterUsuarioPorId(usuarioId);
 
-            return usuario.Modulos.Any(moduloPermitido => moduloPermitido.Nome == modulo);
+            return usuario.Modulos.Any(moduloPermitido => moduloPermitido.Modulo.Nome == modulo);
         }
     }
 }

@@ -29,10 +29,10 @@ namespace SIGO.Usuarios.Test.Application
             var usuario = new Usuario
             {
                 Id = UsuarioId,
-                Modulos = new List<Modulo>
-                 {
-                     new Modulo { Nome = Modulo }
-                 }
+                Modulos = new List<UsuarioModulo>
+                {
+                     new UsuarioModulo {Modulo = new Modulo { Nome = Modulo } }
+                }
             };
 
             _usuarioRepository.ObterUsuarioPorId(UsuarioId).Returns(usuario);
@@ -51,10 +51,10 @@ namespace SIGO.Usuarios.Test.Application
             var usuario = new Usuario
             {
                 Id = UsuarioId,
-                Modulos = new List<Modulo>
-                 {
-                     new Modulo { Nome = "outro-modulo" }
-                 }
+                Modulos = new List<UsuarioModulo>
+                {
+                     new UsuarioModulo { Modulo = new Modulo { Nome = "outro-modulo" } }
+                }
             };
 
             _usuarioRepository.ObterUsuarioPorId(UsuarioId).Returns(usuario);

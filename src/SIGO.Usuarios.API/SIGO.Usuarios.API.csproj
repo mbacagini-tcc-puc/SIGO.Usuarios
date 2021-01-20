@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -8,12 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Middlewares\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SIGO.Usuarios.Application\SIGO.Usuarios.Application.csproj" />
+    <ProjectReference Include="..\SIGO.Usuarios.Data\SIGO.Usuarios.Data.csproj" />
+    <ProjectReference Include="..\SIGO.Usuarios.Integrations\SIGO.Usuarios.Integrations.csproj" />
+    <ProjectReference Include="..\SIGO.Usuarios.Security\SIGO.Usuarios.Security.csproj" />
   </ItemGroup>
 
 </Project>
