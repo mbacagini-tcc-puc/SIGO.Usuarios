@@ -30,7 +30,7 @@ namespace SIGO.Usuarios.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UsuariosContext>(options => options.UseNpgsql(
-                                                             Configuration["ConnectionStrings:DefaultConnection"],
+                                                             Configuration["SIGOUsuariosConnection"],
                                                              postgresOptions => postgresOptions.CommandTimeout(180)
                                                               ));
 
