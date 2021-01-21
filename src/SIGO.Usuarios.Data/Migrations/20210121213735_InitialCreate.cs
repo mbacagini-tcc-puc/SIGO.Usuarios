@@ -84,24 +84,24 @@ namespace SIGO.Usuarios.Data.Migrations
                 columns: new[] { "id", "data_alteracao", "data_inclusao", "nome", "nome_exibicao" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 21, 20, 29, 17, 61, DateTimeKind.Unspecified).AddTicks(1741), new TimeSpan(0, 0, 0, 0, 0)), "usuarios", "Gerenciamento de Usuários" },
-                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 21, 20, 29, 17, 61, DateTimeKind.Unspecified).AddTicks(1840), new TimeSpan(0, 0, 0, 0, 0)), "normas-tecnicas", "Normas Técnicas" },
-                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 21, 20, 29, 17, 61, DateTimeKind.Unspecified).AddTicks(1843), new TimeSpan(0, 0, 0, 0, 0)), "assessorias-consultorias", "Assessorias e Consultorias" }
+                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 21, 21, 37, 34, 920, DateTimeKind.Unspecified).AddTicks(2111), new TimeSpan(0, 0, 0, 0, 0)), "usuarios", "Gerenciamento de Usuários" },
+                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 21, 21, 37, 34, 920, DateTimeKind.Unspecified).AddTicks(2172), new TimeSpan(0, 0, 0, 0, 0)), "normas-tecnicas", "Normas Técnicas" },
+                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 21, 21, 37, 34, 920, DateTimeKind.Unspecified).AddTicks(2175), new TimeSpan(0, 0, 0, 0, 0)), "assessorias-consultorias", "Assessorias e Consultorias" }
                 });
 
             migrationBuilder.InsertData(
                 table: "usuarios",
                 columns: new[] { "id", "celular", "codigo_verificacao", "data_alteracao", "data_inclusao", "email", "expiracao_codigo_verificacao", "nome", "senha" },
-                values: new object[] { 1, "1199999999", null, null, new DateTimeOffset(new DateTime(2021, 1, 21, 20, 29, 17, 57, DateTimeKind.Unspecified).AddTicks(5107), new TimeSpan(0, 0, 0, 0, 0)), "sigo.admin@indtexbr.com.br", null, "Administrador", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df" });
+                values: new object[] { 1, "1199999999", null, null, new DateTimeOffset(new DateTime(2021, 1, 21, 21, 37, 34, 917, DateTimeKind.Unspecified).AddTicks(9843), new TimeSpan(0, 0, 0, 0, 0)), "d830635c6cc19bb67f732cf95653100d55c7f17b4523b2bab3a62408b81c00f3f7f71e8a910693ed8767b7f84aa95c463b4eee614957043200a9931e02ecfc80", null, "Administrador", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df" });
 
             migrationBuilder.InsertData(
                 table: "usuarios_modulos",
                 columns: new[] { "id", "data_alteracao", "data_inclusao", "id_modulo", "id_usuario", "UsuarioId1" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 21, 20, 29, 17, 74, DateTimeKind.Unspecified).AddTicks(8095), new TimeSpan(0, 0, 0, 0, 0)), 1, 1, null },
-                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 21, 20, 29, 17, 74, DateTimeKind.Unspecified).AddTicks(8188), new TimeSpan(0, 0, 0, 0, 0)), 2, 1, null },
-                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 21, 20, 29, 17, 74, DateTimeKind.Unspecified).AddTicks(8191), new TimeSpan(0, 0, 0, 0, 0)), 3, 1, null }
+                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 21, 21, 37, 34, 931, DateTimeKind.Unspecified).AddTicks(9987), new TimeSpan(0, 0, 0, 0, 0)), 1, 1, null },
+                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 21, 21, 37, 34, 932, DateTimeKind.Unspecified).AddTicks(61), new TimeSpan(0, 0, 0, 0, 0)), 2, 1, null },
+                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 21, 21, 37, 34, 932, DateTimeKind.Unspecified).AddTicks(63), new TimeSpan(0, 0, 0, 0, 0)), 3, 1, null }
                 });
 
             migrationBuilder.CreateIndex(

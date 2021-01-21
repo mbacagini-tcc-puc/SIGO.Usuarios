@@ -9,16 +9,20 @@ namespace SIGO.Usuarios.Application.UseCases.Autenticacao
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IAutenticacaoMultifatorService _autenticacaoMultifatorService;
+        private readonly IHashService _hashService;
 
-        public AutenticacaoUseCase(IUsuarioRepository usuarioRepository, IAutenticacaoMultifatorService autenticacaoMultifatorService)
+        public AutenticacaoUseCase(IUsuarioRepository usuarioRepository, IAutenticacaoMultifatorService autenticacaoMultifatorService, IHashService hashService)
         {
             _usuarioRepository = usuarioRepository;
             _autenticacaoMultifatorService = autenticacaoMultifatorService;
+            _hashService = hashService;
         }
 
         public async Task<AutenticacaoOutput> IniciarAutenticacao(string email, string senha)
         {
-            var usuario = await _usuarioRepository.ObterUsuarioPorCredenciais(email, senha);
+            var hashSenha = _hashService.Hash(senha);
+            var hashEmail = _hashService.Hash(email);
+            var usuario = await _usuarioRepository.ObterUsuarioPorCredenciais(hashEmail, hashSenha);
 
             if(usuario == null)
             {

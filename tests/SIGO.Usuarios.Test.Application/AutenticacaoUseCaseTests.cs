@@ -15,28 +15,34 @@ namespace SIGO.Usuarios.Test.Application
         private readonly AutenticacaoUseCase _autenticacaoUseCase;
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IAutenticacaoMultifatorService _autenticacaoMultifatorService;
+        private readonly IHashService _hashService;
 
         private const string Email = "teste@teste.com";
-        private const string Senha = "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413";
-
+        private const string HashEmail = "503098106a5c744cb146d82923a5b0ff123e4c3bf47ddaedf9034bd6e1bf956d71c79830c30297474b64feecabbdd23af34a507620b19be503bfabec8eab4e19";
+        private const string Senha = "123456";
+        private const string HashSenha = "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413";
+        
         public AutenticacaoUseCaseTests()
         {
             _usuarioRepository = Substitute.For<IUsuarioRepository>();
             _autenticacaoMultifatorService = Substitute.For<IAutenticacaoMultifatorService>();
-            _autenticacaoUseCase = new AutenticacaoUseCase(_usuarioRepository, _autenticacaoMultifatorService);
+            _hashService = Substitute.For<IHashService>();
+            _autenticacaoUseCase = new AutenticacaoUseCase(_usuarioRepository, _autenticacaoMultifatorService, _hashService);
+            _hashService.Hash(Email).Returns(HashEmail);
+            _hashService.Hash(Senha).Returns(HashSenha);
         }
 
         [Fact]
         public async Task DeveRetornarNullSeNaoEncontrarUsuario()
         {
+            // arrange
+            _usuarioRepository.ObterUsuarioPorCredenciais(HashEmail, HashSenha).Returns((Usuario) null);
+
             // act
             var resultado = await _autenticacaoUseCase.IniciarAutenticacao(Email, Senha);
 
             // assert
             Assert.Null(resultado);
-
-            // assert received
-            await _usuarioRepository.Received(1).ObterUsuarioPorCredenciais(Email, Senha);
         }
 
         [Fact]
@@ -52,7 +58,7 @@ namespace SIGO.Usuarios.Test.Application
                 Celular = celular
             };
 
-            _usuarioRepository.ObterUsuarioPorCredenciais(Email, Senha).Returns(usuario);
+            _usuarioRepository.ObterUsuarioPorCredenciais(HashEmail, HashSenha).Returns(usuario);
 
             var codigoVerificacaoEnviado = string.Empty;
             var numeroCelularCodigoEnviado = string.Empty;
