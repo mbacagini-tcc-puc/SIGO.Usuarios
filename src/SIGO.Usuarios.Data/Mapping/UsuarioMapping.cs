@@ -13,7 +13,7 @@ namespace SIGO.Usuarios.Data.Mapping
             builder.Property(prop => prop.Email).HasColumnName("email").HasMaxLength(512);
             builder.Property(prop => prop.Senha).HasColumnName("senha").HasMaxLength(512);
             builder.Property(prop => prop.Nome).HasColumnName("nome").HasMaxLength(100);
-            builder.Property(prop => prop.Celular).HasColumnName("celular").HasMaxLength(11);
+            builder.Property(prop => prop.Celular).HasColumnName("celular").HasMaxLength(15);
             builder.Property(prop => prop.CodigoVerificacao).HasColumnName("codigo_verificacao").HasMaxLength(6);
             builder.Property(prop => prop.ExpiracaoCodigoVerificacao).HasColumnName("expiracao_codigo_verificacao");
             builder.HasMany(prop => prop.Modulos).WithOne().HasForeignKey(prop => prop.UsuarioId);
