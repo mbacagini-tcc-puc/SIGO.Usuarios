@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using SIGO.Usuarios.API.Controllers;
+using SIGO.Usuarios.API.Models;
 using SIGO.Usuarios.Application.UseCases.Autenticacao;
 using System.Threading.Tasks;
 using Xunit;
@@ -28,7 +29,7 @@ namespace SIGO.Usuarios.Test.Api
             _autenticacaoUseCase.IniciarAutenticacao(Email, Senha).Returns((AutenticacaoOutput) null);
 
             // act
-            var resultado = await _autenticacaoController.Autenticar(Email, Senha);
+            var resultado = await _autenticacaoController.Autenticar(new AutenticacaoInput { Email = Email, Senha = Senha });
 
             // assert
             Assert.IsType<UnauthorizedResult>(resultado);
@@ -43,7 +44,7 @@ namespace SIGO.Usuarios.Test.Api
             _autenticacaoUseCase.IniciarAutenticacao(Email, Senha).Returns(output);
 
             // act
-            var resultado = await _autenticacaoController.Autenticar(Email, Senha);
+            var resultado = await _autenticacaoController.Autenticar(new AutenticacaoInput { Email = Email, Senha = Senha });
 
             // assert
             Assert.IsType<OkObjectResult>(resultado);
