@@ -12,6 +12,7 @@ using SIGO.Usuarios.Application.Repositories;
 using SIGO.Usuarios.Application.Services;
 using SIGO.Usuarios.Application.UseCases.Autenticacao;
 using SIGO.Usuarios.Application.UseCases.ConfirmacaoMultifator;
+using SIGO.Usuarios.Application.UseCases.Modulos.Listagem;
 using SIGO.Usuarios.Application.UseCases.ValidacaoPermissao;
 using SIGO.Usuarios.Data;
 using SIGO.Usuarios.Data.Repositories;
@@ -42,8 +43,10 @@ namespace SIGO.Usuarios.API
             services.AddScoped<IAutenticacaoUseCase, AutenticacaoUseCase>();
             services.AddScoped<IConfirmacaoMultifatorUseCase, ConfirmacaoMultifatorUseCase>();
             services.AddScoped<IValidacaoPermissaoUseCase, ValidacaoPermissaoUseCase>();
+            services.AddScoped<IListagemModulosUseCase, ListagemModulosUseCase>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IModuloRepository, ModuloRepository>();
 
             services.AddScoped<IAuthTokenService, AuthTokenService>();
             services.AddScoped<IAutenticacaoMultifatorService, AutenticacaoMultifatorService>();

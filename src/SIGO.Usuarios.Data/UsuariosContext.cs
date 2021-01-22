@@ -12,6 +12,7 @@ namespace SIGO.Usuarios.Data
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Modulo> Modulos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
