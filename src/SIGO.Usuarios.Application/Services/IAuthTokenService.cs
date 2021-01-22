@@ -1,7 +1,9 @@
-﻿namespace SIGO.Usuarios.Application.Services
+﻿using SIGO.Usuarios.Application.TransferObjects;
+
+namespace SIGO.Usuarios.Application.Services
 {
     public interface IAuthTokenService
     {
-        string GerarToken(int usuarioId, string email, string nome);
+        string GerarToken(ClaimsInfo info);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SIGO.Usuarios.Application.Repositories;
 using SIGO.Usuarios.Application.Services;
+using SIGO.Usuarios.Application.TransferObjects;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,7 +35,16 @@ namespace SIGO.Usuarios.Application.UseCases.ConfirmacaoMultifator
             await _usuarioRepository.AtualizarUsuario(usuario);
 
             var email = _criptografiaService.Descriptografar(usuario.Email);
-            var token = _authTokenService.GerarToken(usuario.Id, email, usuario.Nome);
+            var celular = _criptografiaService.Descriptografar(usuario.Celular);
+            var token = _authTokenService.GerarToken(new ClaimsInfo
+            {
+                UsuarioId = usuario.Id,
+                Nome = usuario.Nome,
+                Email = email,
+                Celular = celular,
+                Perfil = usuario.UsuarioExterno ? "Usuário Externo" : "Usuário Interno"
+            });
+
             var modulosPermitidos = usuario.Modulos.Select(mod => mod.Modulo.Nome).ToArray();
 
             return new ConfirmacaoAutenticacaoOutput

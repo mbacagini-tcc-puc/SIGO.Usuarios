@@ -55,9 +55,11 @@ namespace SIGO.Usuarios.Test.Application
             var id = 100303;
             var celularCriptografado = "A8D5898D4A4D4D74D78";
             var celular = "1191921228";
+            var nome = "José";
             var usuario = new Usuario
             {
                 Id = id,
+                Nome = nome,
                 Celular = celularCriptografado
             };
 
@@ -79,6 +81,7 @@ namespace SIGO.Usuarios.Test.Application
 
             // assert
             Assert.Equal(id, resultado.UsuarioId);
+            Assert.Equal(nome, resultado.Nome);
             Assert.Equal("1228", resultado.FinalCelular);
             Assert.Equal(celular, numeroCelularCodigoEnviado);
             Assert.True(Regex.IsMatch(codigoVerificacaoEnviado, "[0-9]{6}"), "Código de verificação gerado incorretamente");

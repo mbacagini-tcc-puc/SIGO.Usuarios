@@ -1,4 +1,5 @@
 ﻿using SIGO.Usuarios.API.Auth;
+using SIGO.Usuarios.Application.TransferObjects;
 using Xunit;
 
 namespace SIGO.Usuarios.Test.Api
@@ -24,8 +25,15 @@ namespace SIGO.Usuarios.Test.Api
         [Fact]
         public void DeveGerarToken()
         {
-           // act
-           var token =  _authTokenService.GerarToken(1, "teste@teste.com.br", "José");
+            // act
+            var token = _authTokenService.GerarToken(new ClaimsInfo
+            {
+                UsuarioId = 1,
+                Email = "teste@teste.com.br",
+                Celular = "+115599999999",
+                Nome = "José",
+                Perfil = "Usuário Interno"
+            });
 
             // assert
             Assert.NotNull(token);

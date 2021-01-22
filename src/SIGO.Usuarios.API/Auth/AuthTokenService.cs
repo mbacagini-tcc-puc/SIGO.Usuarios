@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using SIGO.Usuarios.Application.Services;
+using SIGO.Usuarios.Application.TransferObjects;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -16,13 +17,15 @@ namespace SIGO.Usuarios.API.Auth
             _tokenConfigurations = tokenConfigurations;
         }
 
-        public string GerarToken(int usuarioId, string email, string nome)
+        public string GerarToken(ClaimsInfo info)
         {
             var identity = new ClaimsIdentity(
-                     new GenericIdentity(nome),
                      new[] {
-                        new Claim(JwtRegisteredClaimNames.Email, email),
-                        new Claim("userid", usuarioId.ToString())
+                        new Claim("email", info.Email),
+                        new Claim("cellphone", info.Celular),
+                        new Claim("name", info.Nome),
+                        new Claim("userid", info.UsuarioId.ToString()),
+                        new Claim("role", info.Perfil),
                      });
 
             var dataCriacao = DateTime.UtcNow;

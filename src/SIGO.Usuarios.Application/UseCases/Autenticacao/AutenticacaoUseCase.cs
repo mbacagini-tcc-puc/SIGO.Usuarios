@@ -47,6 +47,7 @@ namespace SIGO.Usuarios.Application.UseCases.Autenticacao
             return new AutenticacaoOutput
             {
                  UsuarioId = usuario.Id,
+                 Nome = usuario.Nome,
                  FinalCelular =  ObterFinalCelular(numeroCelular)
             };
         }

@@ -19,12 +19,10 @@ namespace SIGO.Usuarios.API.Auth
 
                 if (claims?.Any() == true)
                 {
-                    var email = claims.FirstOrDefault(c => c.Type.Contains("emailaddress")).Value;
                     var id  = Convert.ToInt32(claims.FirstOrDefault(c => c.Type.Contains("userid")).Value);
 
                     usuarioAutenticadoService.Usuario = new UsuarioAutenticado
                     {
-                       Email = email,
                        Id = id
                     };
                 }

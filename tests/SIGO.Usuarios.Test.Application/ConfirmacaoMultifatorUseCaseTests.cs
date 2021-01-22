@@ -1,6 +1,7 @@
 ﻿using NSubstitute;
 using SIGO.Usuarios.Application.Repositories;
 using SIGO.Usuarios.Application.Services;
+using SIGO.Usuarios.Application.TransferObjects;
 using SIGO.Usuarios.Application.UseCases.ConfirmacaoMultifator;
 using SIGO.Usuarios.Entities;
 using System;
@@ -70,14 +71,23 @@ namespace SIGO.Usuarios.Test.Application
         [Fact]
         public async Task DeveFinalizarAutenticacao()
         {
+            var emailCriptografado = "ADLO454458DOAD14547DOIAPÇLD02";
+            var email = "email@teste.com";
+            var celularCriptografado = "AD14DFD4D78DFAD4D7878";
+            var celular = "+5511999999999";
+            var nome = "José";
+            var usuarioExterno = true;
+
             // arrange
             var usuario = new Usuario
             {
                 Id = UsuarioId,
-                Nome = "José",
-                Email = "ADLO454458DOAD14547DOIAPÇLD02",
+                Nome = nome,
+                Email = emailCriptografado,
+                Celular = celularCriptografado,
                 CodigoVerificacao = CodigoVerificacao,
                 ExpiracaoCodigoVerificacao = DateTime.UtcNow.AddMinutes(2),
+                UsuarioExterno = usuarioExterno,
                 Modulos = new List<UsuarioModulo>
                 {
                      new UsuarioModulo { Modulo = new Modulo {  Nome = "consultorias-assesorias" } },
@@ -85,15 +95,18 @@ namespace SIGO.Usuarios.Test.Application
                 }
             };
 
-            var email = "email@teste.com";
+         
             var token = "access-token";
             Usuario usuarioAtualizado = null;
+            ClaimsInfo claimsInfoCriada = null;
 
             await _usuarioRepository.AtualizarUsuario(Arg.Do<Usuario>(recebido => usuarioAtualizado = recebido));
+             _authTokenService.GerarToken(Arg.Do<ClaimsInfo>(recebido => claimsInfoCriada = recebido));
 
-            _criptografiaService.Descriptografar(usuario.Email).Returns(email);
+            _criptografiaService.Descriptografar(emailCriptografado).Returns(email);
+            _criptografiaService.Descriptografar(celularCriptografado).Returns(celular);
             _usuarioRepository.ObterUsuarioPorId(UsuarioId).Returns(usuario);
-            _authTokenService.GerarToken(usuario.Id, email, usuario.Nome).Returns(token);
+            _authTokenService.GerarToken(default).ReturnsForAnyArgs(token);
 
             // act 
             var resultado = await _confirmacaoMultifatorUseCase.FinalizarAutenticacao(UsuarioId, CodigoVerificacao);
@@ -104,6 +117,13 @@ namespace SIGO.Usuarios.Test.Application
             Assert.Equal("normas", resultado.Modulos[1]);
             Assert.Null(usuarioAtualizado.CodigoVerificacao);
             Assert.Null(usuarioAtualizado.ExpiracaoCodigoVerificacao);
+
+            // arrange claims
+            Assert.Equal(UsuarioId, claimsInfoCriada.UsuarioId);
+            Assert.Equal(email, claimsInfoCriada.Email);
+            Assert.Equal(celular, claimsInfoCriada.Celular);
+            Assert.Equal(nome, claimsInfoCriada.Nome);
+            Assert.Equal("Usuário Externo", claimsInfoCriada.Perfil);
         }
     }
 }

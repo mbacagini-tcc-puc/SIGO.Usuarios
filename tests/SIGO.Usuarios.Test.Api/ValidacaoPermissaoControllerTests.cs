@@ -25,7 +25,6 @@ namespace SIGO.Usuarios.Test.Api
             _validacaoPermissaoController = new ValidacaoPermissaoController(_usuarioAutenticadoService, _validacaoPermissaoUseCase);
             _usuarioAutenticadoService.Usuario.Returns(new UsuarioAutenticado
             {
-                 Email = "teste@teste.com.br",
                  Id = UsuarioId
             });
         }

@@ -16,6 +16,7 @@ namespace SIGO.Usuarios.Data.Mapping
             builder.Property(prop => prop.Celular).HasColumnName("celular").HasMaxLength(40);
             builder.Property(prop => prop.CodigoVerificacao).HasColumnName("codigo_verificacao").HasMaxLength(6);
             builder.Property(prop => prop.ExpiracaoCodigoVerificacao).HasColumnName("expiracao_codigo_verificacao");
+            builder.Property(prop => prop.UsuarioExterno).HasColumnName("usuario_externo");
             builder.HasMany(prop => prop.Modulos).WithOne().HasForeignKey(prop => prop.UsuarioId);
             base.Configure(builder);
 
@@ -29,6 +30,28 @@ namespace SIGO.Usuarios.Data.Mapping
                     Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
                     Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
                     DataInclusao = DateTime.UtcNow
+                },
+
+                new Usuario
+                {
+                    Id = 2,
+                    Nome = "Consultor 1",
+                    Email = "C7BAFB527E21B2D84C246EA6B07C4FBE03C429CE62B43C57F8DE48AF48A9F52B",
+                    Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
+                    Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
+                    DataInclusao = DateTime.UtcNow,
+                    UsuarioExterno = true,
+                },
+
+                new Usuario
+                {
+                    Id = 3,
+                    Nome = "Consultor 2",
+                    Email = "C7BAFB527E21B2D84C246EA6B07C4FBE6155E04E10E1A0AA0ECD6596F7512C95",
+                    Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
+                    Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
+                    DataInclusao = DateTime.UtcNow,
+                    UsuarioExterno = true
                 }
             });
         }
