@@ -2,6 +2,6 @@
 {
     public interface IAuthTokenService
     {
-        string GerarToken(int usuarioId, string email);
+        string GerarToken(int usuarioId, string email, string nome);
     }
 }

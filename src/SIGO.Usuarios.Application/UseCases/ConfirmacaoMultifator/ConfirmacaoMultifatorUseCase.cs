@@ -31,7 +31,7 @@ namespace SIGO.Usuarios.Application.UseCases.ConfirmacaoMultifator
 
             await _usuarioRepository.AtualizarUsuario(usuario);
 
-            var token = _authTokenService.GerarToken(usuario.Id, usuario.Email);
+            var token = _authTokenService.GerarToken(usuario.Id, usuario.Email, usuario.Nome);
             var modulosPermitidos = usuario.Modulos.Select(mod => mod.Modulo.Nome).ToArray();
 
             return new ConfirmacaoAutenticacaoOutput
