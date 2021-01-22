@@ -10,19 +10,24 @@ namespace SIGO.Usuarios.Application.UseCases.Autenticacao
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IAutenticacaoMultifatorService _autenticacaoMultifatorService;
         private readonly IHashService _hashService;
+        private readonly ICriptografiaService _criptografiaService;
 
-        public AutenticacaoUseCase(IUsuarioRepository usuarioRepository, IAutenticacaoMultifatorService autenticacaoMultifatorService, IHashService hashService)
+        public AutenticacaoUseCase(IUsuarioRepository usuarioRepository,
+                                   IAutenticacaoMultifatorService autenticacaoMultifatorService,
+                                   IHashService hashService, 
+                                   ICriptografiaService criptografiaService)
         {
             _usuarioRepository = usuarioRepository;
             _autenticacaoMultifatorService = autenticacaoMultifatorService;
             _hashService = hashService;
+            _criptografiaService = criptografiaService;
         }
 
         public async Task<AutenticacaoOutput> IniciarAutenticacao(string email, string senha)
         {
             var hashSenha = _hashService.Hash(senha);
-            var hashEmail = _hashService.Hash(email);
-            var usuario = await _usuarioRepository.ObterUsuarioPorCredenciais(hashEmail, hashSenha);
+            var emailCriptografado = _criptografiaService.Criptografar(email);
+            var usuario = await _usuarioRepository.ObterUsuarioPorCredenciais(emailCriptografado, hashSenha);
 
             if(usuario == null)
             {
@@ -34,12 +39,15 @@ namespace SIGO.Usuarios.Application.UseCases.Autenticacao
             usuario.DataAlteracao = DateTime.UtcNow;
 
             await _usuarioRepository.AtualizarUsuario(usuario);
-            await _autenticacaoMultifatorService.EnviarConfirmacaoMultifator(usuario.Celular, usuario.CodigoVerificacao);
+
+            var numeroCelular = _criptografiaService.Descriptografar(usuario.Celular);
+
+            await _autenticacaoMultifatorService.EnviarConfirmacaoMultifator(numeroCelular, usuario.CodigoVerificacao);
 
             return new AutenticacaoOutput
             {
                  UsuarioId = usuario.Id,
-                 FinalCelular =  ObterFinalCelular(usuario.Celular)
+                 FinalCelular =  ObterFinalCelular(numeroCelular)
             };
         }
 

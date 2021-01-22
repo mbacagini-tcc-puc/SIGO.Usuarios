@@ -43,6 +43,7 @@ namespace SIGO.Usuarios.API
             services.AddScoped<IAuthTokenService, AuthTokenService>();
             services.AddScoped<IAutenticacaoMultifatorService, AutenticacaoMultifatorService>();
             services.AddScoped<IHashService, HashService>();
+            services.AddScoped<ICriptografiaService, CriptografiaService>();
 
             services.AddControllers();
         }

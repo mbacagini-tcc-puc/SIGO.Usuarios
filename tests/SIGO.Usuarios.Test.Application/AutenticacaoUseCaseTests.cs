@@ -16,9 +16,10 @@ namespace SIGO.Usuarios.Test.Application
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IAutenticacaoMultifatorService _autenticacaoMultifatorService;
         private readonly IHashService _hashService;
+        private readonly ICriptografiaService _criptografiaService;
 
         private const string Email = "teste@teste.com";
-        private const string HashEmail = "503098106a5c744cb146d82923a5b0ff123e4c3bf47ddaedf9034bd6e1bf956d71c79830c30297474b64feecabbdd23af34a507620b19be503bfabec8eab4e19";
+        private const string EmailCriptografado = "AC4DAD48D78AA4D8A4D4D7A7D4";
         private const string Senha = "123456";
         private const string HashSenha = "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413";
         
@@ -27,8 +28,9 @@ namespace SIGO.Usuarios.Test.Application
             _usuarioRepository = Substitute.For<IUsuarioRepository>();
             _autenticacaoMultifatorService = Substitute.For<IAutenticacaoMultifatorService>();
             _hashService = Substitute.For<IHashService>();
-            _autenticacaoUseCase = new AutenticacaoUseCase(_usuarioRepository, _autenticacaoMultifatorService, _hashService);
-            _hashService.Hash(Email).Returns(HashEmail);
+            _criptografiaService = Substitute.For<ICriptografiaService>();
+            _autenticacaoUseCase = new AutenticacaoUseCase(_usuarioRepository, _autenticacaoMultifatorService, _hashService, _criptografiaService);
+            _criptografiaService.Criptografar(Email).Returns(EmailCriptografado);
             _hashService.Hash(Senha).Returns(HashSenha);
         }
 
@@ -36,7 +38,7 @@ namespace SIGO.Usuarios.Test.Application
         public async Task DeveRetornarNullSeNaoEncontrarUsuario()
         {
             // arrange
-            _usuarioRepository.ObterUsuarioPorCredenciais(HashEmail, HashSenha).Returns((Usuario) null);
+            _usuarioRepository.ObterUsuarioPorCredenciais(EmailCriptografado, HashSenha).Returns((Usuario) null);
 
             // act
             var resultado = await _autenticacaoUseCase.IniciarAutenticacao(Email, Senha);
@@ -51,14 +53,16 @@ namespace SIGO.Usuarios.Test.Application
             // arrange
 
             var id = 100303;
+            var celularCriptografado = "A8D5898D4A4D4D74D78";
             var celular = "1191921228";
             var usuario = new Usuario
             {
                 Id = id,
-                Celular = celular
+                Celular = celularCriptografado
             };
 
-            _usuarioRepository.ObterUsuarioPorCredenciais(HashEmail, HashSenha).Returns(usuario);
+            _criptografiaService.Descriptografar(celularCriptografado).Returns(celular);
+            _usuarioRepository.ObterUsuarioPorCredenciais(EmailCriptografado, HashSenha).Returns(usuario);
 
             var codigoVerificacaoEnviado = string.Empty;
             var numeroCelularCodigoEnviado = string.Empty;
