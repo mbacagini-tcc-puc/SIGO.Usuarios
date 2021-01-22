@@ -10,10 +10,10 @@ namespace SIGO.Usuarios.Data.Mapping
         public override void Configure(EntityTypeBuilder<UsuarioModulo> builder)
         {
             builder.ToTable("usuarios_modulos");
-            builder.Property(a => a.UsuarioId).HasColumnName("id_usuario");
-            builder.Property(a => a.ModuloId).HasColumnName("id_modulo");
-            builder.HasOne(a => a.Modulo).WithMany().HasForeignKey(prop => prop.ModuloId);
-            builder.HasOne(a => a.Usuario).WithMany().HasForeignKey(prop => prop.UsuarioId);
+            builder.Property(prop => prop.UsuarioId).HasColumnName("id_usuario");
+            builder.Property(prop => prop.ModuloId).HasColumnName("id_modulo");
+            builder.HasOne(prop => prop.Modulo).WithMany().HasForeignKey(prop => prop.ModuloId);
+            builder.HasOne(prop => prop.Usuario).WithMany(prop => prop.Modulos).HasForeignKey(prop => prop.UsuarioId);
             base.Configure(builder);
 
             builder.HasData(new UsuarioModulo[]

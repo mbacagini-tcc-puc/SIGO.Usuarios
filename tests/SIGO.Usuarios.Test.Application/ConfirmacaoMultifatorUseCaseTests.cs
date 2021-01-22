@@ -15,6 +15,8 @@ namespace SIGO.Usuarios.Test.Application
         private readonly ConfirmacaoMultifatorUseCase _confirmacaoMultifatorUseCase;
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IAuthTokenService _authTokenService;
+        private readonly ICriptografiaService _criptografiaService;
+
 
         private const int UsuarioId = 292929;
         private const string CodigoVerificacao = "204049";
@@ -23,7 +25,8 @@ namespace SIGO.Usuarios.Test.Application
         {
             _usuarioRepository = Substitute.For<IUsuarioRepository>();
             _authTokenService = Substitute.For<IAuthTokenService>();
-            _confirmacaoMultifatorUseCase = new ConfirmacaoMultifatorUseCase(_usuarioRepository, _authTokenService);
+            _criptografiaService = Substitute.For<ICriptografiaService>();
+            _confirmacaoMultifatorUseCase = new ConfirmacaoMultifatorUseCase(_usuarioRepository, _authTokenService, _criptografiaService);
         }
 
         [Fact]
@@ -71,23 +74,26 @@ namespace SIGO.Usuarios.Test.Application
             var usuario = new Usuario
             {
                 Id = UsuarioId,
-                Email = "email@teste.com",
+                Nome = "José",
+                Email = "ADLO454458DOAD14547DOIAPÇLD02",
                 CodigoVerificacao = CodigoVerificacao,
                 ExpiracaoCodigoVerificacao = DateTime.UtcNow.AddMinutes(2),
                 Modulos = new List<UsuarioModulo>
-                 {
+                {
                      new UsuarioModulo { Modulo = new Modulo {  Nome = "consultorias-assesorias" } },
                      new UsuarioModulo { Modulo = new Modulo {  Nome = "normas" } }
-                 }
+                }
             };
 
+            var email = "email@teste.com";
             var token = "access-token";
             Usuario usuarioAtualizado = null;
 
             await _usuarioRepository.AtualizarUsuario(Arg.Do<Usuario>(recebido => usuarioAtualizado = recebido));
 
+            _criptografiaService.Descriptografar(usuario.Email).Returns(email);
             _usuarioRepository.ObterUsuarioPorId(UsuarioId).Returns(usuario);
-            _authTokenService.GerarToken(usuario.Id, usuario.Email).Returns(token);
+            _authTokenService.GerarToken(usuario.Id, email, usuario.Nome).Returns(token);
 
             // act 
             var resultado = await _confirmacaoMultifatorUseCase.FinalizarAutenticacao(UsuarioId, CodigoVerificacao);

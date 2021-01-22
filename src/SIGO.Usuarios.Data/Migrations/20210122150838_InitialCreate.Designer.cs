@@ -10,7 +10,7 @@ using SIGO.Usuarios.Data;
 namespace SIGO.Usuarios.Data.Migrations
 {
     [DbContext(typeof(UsuariosContext))]
-    [Migration("20210122015536_InitialCreate")]
+    [Migration("20210122150838_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,21 +55,21 @@ namespace SIGO.Usuarios.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 1, 55, 35, 662, DateTimeKind.Unspecified).AddTicks(3945), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 15, 8, 37, 496, DateTimeKind.Unspecified).AddTicks(9110), new TimeSpan(0, 0, 0, 0, 0)),
                             Nome = "usuarios",
                             NomeExibicao = "Gerenciamento de Usuários"
                         },
                         new
                         {
                             Id = 2,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 1, 55, 35, 662, DateTimeKind.Unspecified).AddTicks(4054), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 15, 8, 37, 496, DateTimeKind.Unspecified).AddTicks(9204), new TimeSpan(0, 0, 0, 0, 0)),
                             Nome = "normas-tecnicas",
                             NomeExibicao = "Normas Técnicas"
                         },
                         new
                         {
                             Id = 3,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 1, 55, 35, 662, DateTimeKind.Unspecified).AddTicks(4060), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 15, 8, 37, 496, DateTimeKind.Unspecified).AddTicks(9210), new TimeSpan(0, 0, 0, 0, 0)),
                             Nome = "assessorias-consultorias",
                             NomeExibicao = "Assessorias e Consultorias"
                         });
@@ -129,7 +129,7 @@ namespace SIGO.Usuarios.Data.Migrations
                         {
                             Id = 1,
                             Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 1, 55, 35, 655, DateTimeKind.Unspecified).AddTicks(9706), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 15, 8, 37, 494, DateTimeKind.Unspecified).AddTicks(548), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "6CA8AD90817B9A591E1EEDC5C183F4C9E4E2B32E1DD6EFDD688D2A47A0A83A79",
                             Nome = "Administrador",
                             Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df"
@@ -160,16 +160,11 @@ namespace SIGO.Usuarios.Data.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("id_usuario");
 
-                    b.Property<int?>("UsuarioId1")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ModuloId");
 
                     b.HasIndex("UsuarioId");
-
-                    b.HasIndex("UsuarioId1");
 
                     b.ToTable("usuarios_modulos");
 
@@ -177,21 +172,21 @@ namespace SIGO.Usuarios.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 1, 55, 35, 676, DateTimeKind.Unspecified).AddTicks(8433), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 15, 8, 37, 514, DateTimeKind.Unspecified).AddTicks(1088), new TimeSpan(0, 0, 0, 0, 0)),
                             ModuloId = 1,
                             UsuarioId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 1, 55, 35, 676, DateTimeKind.Unspecified).AddTicks(8513), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 15, 8, 37, 514, DateTimeKind.Unspecified).AddTicks(1173), new TimeSpan(0, 0, 0, 0, 0)),
                             ModuloId = 2,
                             UsuarioId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 1, 55, 35, 676, DateTimeKind.Unspecified).AddTicks(8516), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 15, 8, 37, 514, DateTimeKind.Unspecified).AddTicks(1176), new TimeSpan(0, 0, 0, 0, 0)),
                             ModuloId = 3,
                             UsuarioId = 1
                         });
@@ -206,14 +201,10 @@ namespace SIGO.Usuarios.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("SIGO.Usuarios.Entities.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("Modulos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("SIGO.Usuarios.Entities.Usuario", null)
-                        .WithMany("Modulos")
-                        .HasForeignKey("UsuarioId1");
 
                     b.Navigation("Modulo");
 
