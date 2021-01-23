@@ -24,3 +24,10 @@
 /tests/SIGO.Usuarios.Test.Api/obj
 /tests/SIGO.Usuarios.Test.Security/bin/Debug/netcoreapp3.1
 /tests/SIGO.Usuarios.Test.Security/obj
+/out
+/src/SIGO.Usuarios.API/bin/Release/netcoreapp3.1
+/src/SIGO.Usuarios.Application/bin/Release/netcoreapp3.1
+/src/SIGO.Usuarios.Data/bin/Release/netcoreapp3.1
+/src/SIGO.Usuarios.Entities/bin/Release/netcoreapp3.1
+/src/SIGO.Usuarios.Integrations/bin/Release/netcoreapp3.1
+/src/SIGO.Usuarios.Security/bin/Release/netcoreapp3.1
