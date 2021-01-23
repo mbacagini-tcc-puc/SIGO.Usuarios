@@ -53,21 +53,21 @@ namespace SIGO.Usuarios.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 599, DateTimeKind.Unspecified).AddTicks(9738), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 283, DateTimeKind.Unspecified).AddTicks(6601), new TimeSpan(0, 0, 0, 0, 0)),
                             Nome = "usuarios",
                             NomeExibicao = "Gerenciamento de Usuários"
                         },
                         new
                         {
                             Id = 2,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 599, DateTimeKind.Unspecified).AddTicks(9861), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 283, DateTimeKind.Unspecified).AddTicks(6747), new TimeSpan(0, 0, 0, 0, 0)),
                             Nome = "normas-tecnicas",
                             NomeExibicao = "Normas Técnicas"
                         },
                         new
                         {
                             Id = 3,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 599, DateTimeKind.Unspecified).AddTicks(9865), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 283, DateTimeKind.Unspecified).AddTicks(6752), new TimeSpan(0, 0, 0, 0, 0)),
                             Nome = "assessorias-consultorias",
                             NomeExibicao = "Assessorias e Consultorias"
                         });
@@ -131,7 +131,7 @@ namespace SIGO.Usuarios.Data.Migrations
                         {
                             Id = 1,
                             Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 594, DateTimeKind.Unspecified).AddTicks(8388), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 280, DateTimeKind.Unspecified).AddTicks(2934), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "6CA8AD90817B9A591E1EEDC5C183F4C9E4E2B32E1DD6EFDD688D2A47A0A83A79",
                             Nome = "Administrador",
                             Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
@@ -141,7 +141,7 @@ namespace SIGO.Usuarios.Data.Migrations
                         {
                             Id = 2,
                             Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 594, DateTimeKind.Unspecified).AddTicks(8841), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 280, DateTimeKind.Unspecified).AddTicks(3684), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "C7BAFB527E21B2D84C246EA6B07C4FBE03C429CE62B43C57F8DE48AF48A9F52B",
                             Nome = "Consultor 1",
                             Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
@@ -151,7 +151,7 @@ namespace SIGO.Usuarios.Data.Migrations
                         {
                             Id = 3,
                             Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 594, DateTimeKind.Unspecified).AddTicks(9104), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 280, DateTimeKind.Unspecified).AddTicks(4293), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "C7BAFB527E21B2D84C246EA6B07C4FBE6155E04E10E1A0AA0ECD6596F7512C95",
                             Nome = "Consultor 2",
                             Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
@@ -195,23 +195,37 @@ namespace SIGO.Usuarios.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 629, DateTimeKind.Unspecified).AddTicks(4033), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(226), new TimeSpan(0, 0, 0, 0, 0)),
                             ModuloId = 1,
                             UsuarioId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 629, DateTimeKind.Unspecified).AddTicks(4155), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(335), new TimeSpan(0, 0, 0, 0, 0)),
                             ModuloId = 2,
                             UsuarioId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 629, DateTimeKind.Unspecified).AddTicks(4162), new TimeSpan(0, 0, 0, 0, 0)),
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(342), new TimeSpan(0, 0, 0, 0, 0)),
                             ModuloId = 3,
                             UsuarioId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(344), new TimeSpan(0, 0, 0, 0, 0)),
+                            ModuloId = 3,
+                            UsuarioId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DataInclusao = new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(348), new TimeSpan(0, 0, 0, 0, 0)),
+                            ModuloId = 3,
+                            UsuarioId = 3
                         });
                 });
 

@@ -78,9 +78,9 @@ namespace SIGO.Usuarios.Data.Migrations
                 columns: new[] { "id", "data_alteracao", "data_inclusao", "nome", "nome_exibicao" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 599, DateTimeKind.Unspecified).AddTicks(9738), new TimeSpan(0, 0, 0, 0, 0)), "usuarios", "Gerenciamento de Usuários" },
-                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 599, DateTimeKind.Unspecified).AddTicks(9861), new TimeSpan(0, 0, 0, 0, 0)), "normas-tecnicas", "Normas Técnicas" },
-                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 599, DateTimeKind.Unspecified).AddTicks(9865), new TimeSpan(0, 0, 0, 0, 0)), "assessorias-consultorias", "Assessorias e Consultorias" }
+                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 283, DateTimeKind.Unspecified).AddTicks(6601), new TimeSpan(0, 0, 0, 0, 0)), "usuarios", "Gerenciamento de Usuários" },
+                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 283, DateTimeKind.Unspecified).AddTicks(6747), new TimeSpan(0, 0, 0, 0, 0)), "normas-tecnicas", "Normas Técnicas" },
+                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 283, DateTimeKind.Unspecified).AddTicks(6752), new TimeSpan(0, 0, 0, 0, 0)), "assessorias-consultorias", "Assessorias e Consultorias" }
                 });
 
             migrationBuilder.InsertData(
@@ -88,9 +88,9 @@ namespace SIGO.Usuarios.Data.Migrations
                 columns: new[] { "id", "celular", "codigo_verificacao", "data_alteracao", "data_inclusao", "email", "expiracao_codigo_verificacao", "nome", "senha", "usuario_externo" },
                 values: new object[,]
                 {
-                    { 1, "AC6D5A87D5F3656E4D46A5224CD2D52A", null, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 594, DateTimeKind.Unspecified).AddTicks(8388), new TimeSpan(0, 0, 0, 0, 0)), "6CA8AD90817B9A591E1EEDC5C183F4C9E4E2B32E1DD6EFDD688D2A47A0A83A79", null, "Administrador", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df", false },
-                    { 2, "AC6D5A87D5F3656E4D46A5224CD2D52A", null, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 594, DateTimeKind.Unspecified).AddTicks(8841), new TimeSpan(0, 0, 0, 0, 0)), "C7BAFB527E21B2D84C246EA6B07C4FBE03C429CE62B43C57F8DE48AF48A9F52B", null, "Consultor 1", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df", true },
-                    { 3, "AC6D5A87D5F3656E4D46A5224CD2D52A", null, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 594, DateTimeKind.Unspecified).AddTicks(9104), new TimeSpan(0, 0, 0, 0, 0)), "C7BAFB527E21B2D84C246EA6B07C4FBE6155E04E10E1A0AA0ECD6596F7512C95", null, "Consultor 2", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df", true }
+                    { 1, "AC6D5A87D5F3656E4D46A5224CD2D52A", null, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 280, DateTimeKind.Unspecified).AddTicks(2934), new TimeSpan(0, 0, 0, 0, 0)), "6CA8AD90817B9A591E1EEDC5C183F4C9E4E2B32E1DD6EFDD688D2A47A0A83A79", null, "Administrador", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df", false },
+                    { 2, "AC6D5A87D5F3656E4D46A5224CD2D52A", null, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 280, DateTimeKind.Unspecified).AddTicks(3684), new TimeSpan(0, 0, 0, 0, 0)), "C7BAFB527E21B2D84C246EA6B07C4FBE03C429CE62B43C57F8DE48AF48A9F52B", null, "Consultor 1", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df", true },
+                    { 3, "AC6D5A87D5F3656E4D46A5224CD2D52A", null, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 280, DateTimeKind.Unspecified).AddTicks(4293), new TimeSpan(0, 0, 0, 0, 0)), "C7BAFB527E21B2D84C246EA6B07C4FBE6155E04E10E1A0AA0ECD6596F7512C95", null, "Consultor 2", "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df", true }
                 });
 
             migrationBuilder.InsertData(
@@ -98,9 +98,11 @@ namespace SIGO.Usuarios.Data.Migrations
                 columns: new[] { "id", "data_alteracao", "data_inclusao", "id_modulo", "id_usuario" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 629, DateTimeKind.Unspecified).AddTicks(4033), new TimeSpan(0, 0, 0, 0, 0)), 1, 1 },
-                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 629, DateTimeKind.Unspecified).AddTicks(4155), new TimeSpan(0, 0, 0, 0, 0)), 2, 1 },
-                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 22, 21, 40, 15, 629, DateTimeKind.Unspecified).AddTicks(4162), new TimeSpan(0, 0, 0, 0, 0)), 3, 1 }
+                    { 1, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(226), new TimeSpan(0, 0, 0, 0, 0)), 1, 1 },
+                    { 2, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(335), new TimeSpan(0, 0, 0, 0, 0)), 2, 1 },
+                    { 3, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(342), new TimeSpan(0, 0, 0, 0, 0)), 3, 1 },
+                    { 4, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(344), new TimeSpan(0, 0, 0, 0, 0)), 3, 2 },
+                    { 5, null, new DateTimeOffset(new DateTime(2021, 1, 23, 0, 39, 56, 306, DateTimeKind.Unspecified).AddTicks(348), new TimeSpan(0, 0, 0, 0, 0)), 3, 3 }
                 });
 
             migrationBuilder.CreateIndex(

@@ -20,7 +20,9 @@ namespace SIGO.Usuarios.Data.Mapping
             {
                 new UsuarioModulo { Id = 1, UsuarioId = 1, ModuloId = 1, DataInclusao = DateTime.UtcNow },
                 new UsuarioModulo { Id = 2, UsuarioId = 1, ModuloId = 2, DataInclusao = DateTime.UtcNow },
-                new UsuarioModulo { Id = 3, UsuarioId = 1, ModuloId = 3, DataInclusao = DateTime.UtcNow }
+                new UsuarioModulo { Id = 3, UsuarioId = 1, ModuloId = 3, DataInclusao = DateTime.UtcNow },
+                new UsuarioModulo { Id = 4, UsuarioId = 2, ModuloId = 3, DataInclusao = DateTime.UtcNow },
+                new UsuarioModulo { Id = 5, UsuarioId = 3, ModuloId = 3, DataInclusao = DateTime.UtcNow }
             });
         }
     }
