@@ -7,7 +7,6 @@ namespace SIGO.Usuarios.Application.Repositories
     {
         Task<Usuario> ObterUsuarioPorCredenciais(string email, string senha);
 
-
         Task<Usuario> ObterUsuarioPorId(int id);
 
         Task InserirUsuario(Usuario usuario);
