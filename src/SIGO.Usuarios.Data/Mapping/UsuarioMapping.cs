@@ -25,9 +25,9 @@ namespace SIGO.Usuarios.Data.Mapping
                 new Usuario
                 {
                     Id = 1,
-                    Nome = "Administrador",
-                    Email = "6CA8AD90817B9A591E1EEDC5C183F4C9E4E2B32E1DD6EFDD688D2A47A0A83A79",
-                    Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
+                    Nome = "Murilo",
+                    Email = "D837ECDE06F1C5BD58C8439D226B0B2CF5FD68AAD16B014DF691065FF1D3C90D",
+                    Senha = "96c90eb59dc05559ba78f4f6e76def228f18d0bad15d32a7886996ceb5d63d1a8a9c905d8667451de20cbaac46a3379d4a5469a1e285d692005b9f7b55aefb23",
                     Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
                     DataInclusao = DateTime.UtcNow
                 },
@@ -35,9 +35,9 @@ namespace SIGO.Usuarios.Data.Mapping
                 new Usuario
                 {
                     Id = 2,
-                    Nome = "Consultor 1",
+                    Nome = "José Carlos Santos",
                     Email = "C7BAFB527E21B2D84C246EA6B07C4FBE03C429CE62B43C57F8DE48AF48A9F52B",
-                    Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
+                    Senha = "96c90eb59dc05559ba78f4f6e76def228f18d0bad15d32a7886996ceb5d63d1a8a9c905d8667451de20cbaac46a3379d4a5469a1e285d692005b9f7b55aefb23",
                     Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
                     DataInclusao = DateTime.UtcNow,
                     UsuarioExterno = true,
@@ -46,9 +46,9 @@ namespace SIGO.Usuarios.Data.Mapping
                 new Usuario
                 {
                     Id = 3,
-                    Nome = "Consultor 2",
+                    Nome = "Ana Maria Oliveira",
                     Email = "C7BAFB527E21B2D84C246EA6B07C4FBE6155E04E10E1A0AA0ECD6596F7512C95",
-                    Senha = "4c7ad029115071a8cdfaa17aae1a997b9e5f891033b771d38b79b07fd44a887909144ce6f015ed7b62efefdf6564079d7b4407db226065147dd1e48cc0a868df",
+                    Senha = "96c90eb59dc05559ba78f4f6e76def228f18d0bad15d32a7886996ceb5d63d1a8a9c905d8667451de20cbaac46a3379d4a5469a1e285d692005b9f7b55aefb23",
                     Celular = "AC6D5A87D5F3656E4D46A5224CD2D52A",
                     DataInclusao = DateTime.UtcNow,
                     UsuarioExterno = true
