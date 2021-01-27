@@ -22,8 +22,10 @@ namespace SIGO.Usuarios.Test.Application
             _validacaoPermissaoUseCase = new ValidacaoPermissaoUseCase(_usuarioRepository);
         }
 
-        [Fact]
-        public async Task DeveRetornarPermissao()
+        [Theory]
+        [InlineData(Modulo)]
+        [InlineData("home")]
+        public async Task DeveRetornarPermissao(string modulo)
         {
             // arrange
             var usuario = new Usuario
@@ -31,14 +33,14 @@ namespace SIGO.Usuarios.Test.Application
                 Id = UsuarioId,
                 Modulos = new List<UsuarioModulo>
                 {
-                     new UsuarioModulo {Modulo = new Modulo { Nome = Modulo } }
+                     new UsuarioModulo { Modulo = new Modulo { Nome = Modulo } }
                 }
             };
 
             _usuarioRepository.ObterUsuarioPorId(UsuarioId).Returns(usuario);
 
             // act
-            var resultado = await _validacaoPermissaoUseCase.ValidarPermissao(UsuarioId, Modulo);
+            var resultado = await _validacaoPermissaoUseCase.ValidarPermissao(UsuarioId, modulo);
 
             // Assert
             Assert.True(resultado);

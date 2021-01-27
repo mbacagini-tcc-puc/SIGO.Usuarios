@@ -15,6 +15,11 @@ namespace SIGO.Usuarios.Application.UseCases.ValidacaoPermissao
 
         public async Task<bool> ValidarPermissao(int usuarioId, string modulo)
         {
+            if(modulo == "home")
+            {
+                return true;
+            }
+
             var usuario = await _usuarioRepository.ObterUsuarioPorId(usuarioId);
 
             return usuario.Modulos.Any(moduloPermitido => moduloPermitido.Modulo.Nome == modulo);
