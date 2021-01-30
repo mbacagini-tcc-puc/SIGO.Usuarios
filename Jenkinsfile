@@ -14,5 +14,11 @@ pipeline {
 				sh "docker push ${params.ECR_Repo}/sigo-usuarios:latest"
 			}
 		}
+		
+		stage('Deploy service') {
+			steps {
+				sh "aws ecs update-service --cluster sigo-cluster --service usuarios-service --force-new-deployment"
+			}
+		}
 	}
 }
